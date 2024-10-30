@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .settings-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+        }
+        .setting {
+            margin-bottom: 15px;
+        }
+        label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+        }
+        input[type="checkbox"] {
+            cursor: pointer;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Settings</h1>
+    <div class="settings-container">
+        <div class="setting">
+            <label>
+                Enable Tab Cloak
+                <input type="checkbox" id="tabCloakToggle" onchange="toggleTabCloak()">
+            </label>
+        </div>
+        <div class="setting">
+            <label>
+                Enable Non-Closable Tab
+                <input type="checkbox" id="nonClosableToggle" onchange="toggleNonClosableTab()">
+            </label>
+        </div>
+    </div>
+
+    <script>
+        let nonClosableWindow;
+
+        function toggleTabCloak() {
+            const isEnabled = document.getElementById("tabCloakToggle").checked;
+            if (isEnabled) {
+                alert("Tab cloak is enabled. It will redirect to the specified URL.");
+                // Change the URL or load your site here as needed
+                window.open("https://manmanssww2232.github.io/Pjmm/", "_Loading");
+            } else {
+                alert("Tab cloak is disabled.");
+            }
+        }
+
+        function toggleNonClosableTab() {
+            const isEnabled = document.getElementById("nonClosableToggle").checked;
+            if (isEnabled) {
+                // Open a non-closable window
+                nonClosableWindow = window.open("https://manmanssww2232.github.io/Pjmm/", "_Loading", "noopener,noreferrer");
+                nonClosableWindow.onbeforeunload = function() {
+                    return "Are you sure you want to close this tab?";
+                };
+                alert("Non-closable tab is enabled.");
+            } else {
+                if (nonClosableWindow) {
+                    nonClosableWindow.close();
+                    nonClosableWindow = null;
+                }
+                alert("Non-closable tab is disabled.");
+            }
+        }
+    </script>
+</body>
+</html>
