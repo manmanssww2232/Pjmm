@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded Site</title>
+    <title>Error_33</title>
     <style>
         body, html {
             margin: 0;
@@ -11,12 +11,14 @@
             height: 100%;
             overflow: hidden; /* Prevents scrolling */
             background-color: #f0f0f0; /* Background color */
+            font-family: Arial, sans-serif; /* Font style */
         }
-        iframe {
+        #content {
             width: 100%; /* Full width */
             height: 100%; /* Full height */
             border: none; /* No border */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            overflow: hidden; /* Prevent scrolling inside iframe */
         }
         button {
             padding: 10px 20px;
@@ -26,7 +28,6 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
             position: absolute; /* Positioning the button */
             top: 20px; /* Position from top */
             left: 20px; /* Position from left */
@@ -38,13 +39,23 @@
     </style>
 </head>
 <body>
-    <iframe src="https://uniub.github.io/" title="Embedded Site"></iframe>
+    <iframe id="content" title="Embedded GitHub Content"></iframe>
     <button onclick="openSettings()">Settings</button>
 
     <script>
+        // Function to load the GitHub page into the iframe
+        function loadGitHub() {
+            const iframe = document.getElementById("content");
+            iframe.src = "https://uniub.github.io/"; // Embed the GitHub link
+        }
+
+        // Open settings window
         function openSettings() {
             window.open("settings.html", "Settings", "width=800,height=600,resizable=no,scrollbars=no");
         }
+
+        // Load GitHub page when the page is fully loaded
+        window.onload = loadGitHub;
     </script>
 </body>
 </html>
