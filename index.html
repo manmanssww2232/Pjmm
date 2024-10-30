@@ -16,11 +16,11 @@
             background-color: #f0f0f0;
         }
         iframe {
-            width: 90%; /* Reduced width */
-            height: 90%; /* Reduced height */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
             border: none;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px; /* Space between iframe and button */
+            margin-bottom: 0; /* No margin needed for full size */
         }
         button {
             padding: 10px 20px;
@@ -31,6 +31,9 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            position: absolute; /* Position the button */
+            top: 20px; /* Adjust top position */
+            left: 20px; /* Adjust left position */
         }
         button:hover {
             background-color: #0056b3; /* Darker shade on hover */
