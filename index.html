@@ -9,18 +9,14 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #f0f0f0;
+            overflow: hidden; /* Prevents scrolling */
+            background-color: #f0f0f0; /* Background color */
         }
         iframe {
             width: 100%; /* Full width */
             height: 100%; /* Full height */
-            border: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-bottom: 0; /* No margin needed for full size */
+            border: none; /* No border */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
         }
         button {
             padding: 10px 20px;
@@ -31,9 +27,10 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-            position: absolute; /* Position the button */
-            top: 20px; /* Adjust top position */
-            left: 20px; /* Adjust left position */
+            position: absolute; /* Positioning the button */
+            top: 20px; /* Position from top */
+            left: 20px; /* Position from left */
+            z-index: 10; /* Make sure it stays on top */
         }
         button:hover {
             background-color: #0056b3; /* Darker shade on hover */
